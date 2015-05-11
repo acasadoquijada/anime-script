@@ -43,6 +43,6 @@ f.close()
 
 parteurl = "http://animeflv.net/ver/"
 
-url = parteurl + nombre + "-" + capitulo + ".html"
+url = parteurl + anime + "-" + capitulo + ".html"
 #print url
-webbrowser.open_new('http://animeflv.net/ver/nombre-33.html')	# Para abrir navegador
+webbrowser.open_new(url)	# Para abrir navegador
