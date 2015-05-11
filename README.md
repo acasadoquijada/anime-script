@@ -27,4 +27,6 @@ Si el anime tiene un nombre que se escribe separado como Shingeki no Kyojin, el 
 
 * Versión actual: 0.3
 
+[Licencia](LICENSE)
+
 Autor: Alejandro Casado Quijada
