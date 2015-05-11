@@ -21,7 +21,7 @@ hora = time.strftime("%H:%M")
 historial = []
 
 #Para buscar informacion del anime en el registro
-file=open("registroactividad.txt","r")
+file=open("registroactividad.txt","a+")
 for i in file.readlines():
 	if i.find(anime) >= 0:
 		historial.append(i)	# Saco la linea donde esta anime	cap	fecha
