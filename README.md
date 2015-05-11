@@ -3,19 +3,12 @@
 ##Uso del script
 
 ###Shell
-Basta con lanzar el script y seguir la GUI
 
+Basta con lanzar el script y seguir la GUI
 
 ###Python
 
-Para usar el script abrir una terminal y lanzar el script junto con el anime y capitulo que queremos ver
-
-Ej:
-./animeflv.sh bleach 12
-
-Si el anime tiene un nombre que se escribe separado como Shingeki no Kyojin, el script se usaría de la siguiente manera:
-
-./animeflv.sh shingeki-no-kyojin 12
+Para usar el script abrir una terminal, lanzarlo y seguir las instrucciones
 
 ##Caracteristicas
 
