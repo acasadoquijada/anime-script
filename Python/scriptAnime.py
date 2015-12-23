@@ -15,10 +15,7 @@
 import webbrowser
 import time
 import re
-import sys
 
-reload(sys) 
-sys.setdefaultencoding("utf-8")
 
 ########################
 # Funciones auxiliares #
@@ -53,11 +50,11 @@ def historial(anime):
 	file.close()
 
 	if len(historial):
-		print "\nRegistro de " + anime + "\n"
+		print("\nRegistro de " + anime + "\n")
 		for i in historial:
-			print i
+			print(i)
 	else:
-		print "Aun no has visto ningun capitulo de este anime"
+		print("Aun no has visto ningun capitulo de este anime")
 
 
 #Guardamos el informacion sobre el capitulo visionado
@@ -70,7 +67,7 @@ def log(info):
 
 
 #Pedimos el anime
-anime = raw_input("Que anime quieres ver?: ")
+anime = input("¿Que anime quieres ver?: ")
 
 #Le arreglamos el formato
 anime = formato_anime(anime)
@@ -79,7 +76,7 @@ fecha,hora =  obtener_hora_fecha()
 
 historial(anime)
 
-capitulo = raw_input("Que capitulo?: ")
+capitulo = input("¿Que capítulo?: ")
 
 info = anime + " " + capitulo + " " + fecha + " " + hora + "\n"
 
