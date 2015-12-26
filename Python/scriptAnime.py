@@ -57,13 +57,10 @@ def historial(anime):
 
 		info = cur.execute("SELECT * FROM " + anime + " ORDER BY fecha DESC LIMIT 5")
 
-
 		print("Ultimos capítulos visionados de " + anime)
 
 		for i in info:
 			print(i)
-			
-
 
 if __name__ == "__main__":
 
