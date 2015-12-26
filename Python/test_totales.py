@@ -21,6 +21,8 @@ class Test(unittest.TestCase):
 		
 		registro(anime,capitulo)
 		
+		historial(anime)
+		
 		con = lite.connect('registro.db')
 
 		with con:
@@ -30,7 +32,8 @@ class Test(unittest.TestCase):
 			
 			self.assertEqual(cur.fetchone()[0], capitulo)
 
-		print("Test registro correcto")
+		print("Test registro/historial correcto")
+
 
 if __name__ == '__main__':
 	unittest.main()	
