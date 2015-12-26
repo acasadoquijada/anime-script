@@ -10,18 +10,30 @@
 # url => Url con el anime y capitulo seleccionado
 ##############################################################################################
 
-# --* coding: utf-8 -*-
-
 import webbrowser
-import time
+from datetime import date, datetime
 import re
-
+import sqlite3 as lite
 
 ########################
 # Funciones auxiliares #
 ########################
 
+ 
+def registro(anime,capitulo):
 
+	con = lite.connect('registro.db')
+	
+	with con:	
+		cur = con.cursor()
+			
+		cur.execute("CREATE TABLE IF NOT EXISTS "+ anime +"(capitulo INT NOT NULL,fecha TIMESTAMP NOT NULL)")
+	
+		now = datetime.now()
+	
+		cur.execute("INSERT INTO " + anime +" VALUES(?,?)", (capitulo,now))
+	
+	
 # Comprueba y corrige el formato del anime introducido.
 # Ej: Dragon Ball => dragon-ball
 def formato_anime(anime):
@@ -30,63 +42,51 @@ def formato_anime(anime):
 	anime_corregido = anime_corregido.lower()
 	return anime_corregido
 
-# Obtenemos la hora y la fecha de visionado	
-def obtener_hora_fecha():
-	h = time.strftime("%H:%M")	
-	f = time.strftime("%d/%m/%y")
-	
-	return f,h
-
-# Buscamos si el usuario ha visto el anime indicado
-def historial(anime):
-
-	historial = []
-
-	# Buscamos info
-	file=open("registroactividad.txt","a+")
-	for i in file.readlines():
-		if i.find(anime) >= 0:
-			historial.append(i)	# Saco la linea donde esta anime cap fecha
-	file.close()
-
-	if len(historial):
-		print("\nRegistro de " + anime + "\n")
-		for i in historial:
-			print(i)
-	else:
-		print("Aun no has visto ningun capitulo de este anime")
-
 
 #Guardamos el informacion sobre el capitulo visionado
 
-def log(info):
+def historial(anime):
 
-	f = open("registroactividad.txt", "a")
-	f.write(info)
-	f.close()
+	con = lite.connect('registro.db')
+
+	with con:
+
+		cur = con.cursor()
+
+		cur.execute("CREATE TABLE IF NOT EXISTS "+ anime +"(capitulo INT NOT NULL,fecha TIMESTAMP NOT NULL)")	
+
+		info = cur.execute("SELECT * FROM " + anime + " ORDER BY fecha DESC LIMIT 5")
 
 
-#Pedimos el anime
-anime = input("¿Que anime quieres ver?: ")
+		print("Ultimos capítulos visionados de " + anime)
 
-#Le arreglamos el formato
-anime = formato_anime(anime)
+		for i in info:
+			print(i)
+			
 
-fecha,hora =  obtener_hora_fecha()
 
-historial(anime)
+if __name__ == "__main__":
 
-capitulo = input("¿Que capítulo?: ")
+	#Pedimos el anime
+	anime = input("¿Que anime quieres ver?: ")
 
-info = anime + " " + capitulo + " " + fecha + " " + hora + "\n"
+	while(anime.isdigit()):
+		print("Introduce un nombre valido")
+		anime = input("¿Que anime quieres ver?: ")
+		
+	#Le arreglamos el formato
+	anime = formato_anime(anime)
+	
+	historial(anime)
 
-#Guardamos la informacion en el registro
-log(info)
+	capitulo = input("¿Que capítulo?: ")
 
-parteurl = "http://animeflv.net/ver/"
+	#Guardamos la informacion en el registro
+	registro(anime,capitulo)
 
-url = parteurl + anime + "-" + capitulo + ".html"
+	parteurl = "http://animeflv.net/ver/"
 
-webbrowser.open_new(url)	# Para abrir navegador
+	url = parteurl + anime + "-" + capitulo + ".html"
 
+	webbrowser.open_new(url)	# Para abrir navegador
 
