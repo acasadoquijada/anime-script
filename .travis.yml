@@ -8,7 +8,9 @@ install:
 - pip install -r requirements.txt 
 
 script:
-- nosetests --with-coverage --omit=/usr/lib/python3.4/webbrowser.py
+- coverage run --source=scriptAnime.py test_totales.py
+
+- nosetests --with-coverage 
 
 after_success:  
   - coveralls
