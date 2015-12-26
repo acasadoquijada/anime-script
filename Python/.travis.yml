@@ -2,3 +2,8 @@ language: python
 sudo: required
 python:
  - "3.4.3"
+ 
+test:
+
+- cd Python
+- python test.py
