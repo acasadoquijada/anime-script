@@ -1,5 +1,7 @@
 #ScriptAnime
 
+[![Build Status](https://travis-ci.org/acasadoquijada/anime-script.svg?branch=master)](https://travis-ci.org/acasadoquijada/anime-script)
+s
 ##Descripción
 
 Se trata de un pequeño programa para visualizar anime, consta de un registro para saber por que capítulo vas, importante para serie kilométricas como Bleach.
@@ -19,11 +21,11 @@ Actualmente solo estoy trabajando en la versión de python
 
 ###Shell
 
-Basta con lanzar el script y seguir la GUI
+* Basta con lanzar el script y seguir la GUI
 
 ###Python
 
-Para usar el script abrir una terminal, lanzarlo y seguir las instrucciones
+* Para usar el script abrir una terminal, lanzarlo y seguir las instrucciones
 
 ##Características
 
