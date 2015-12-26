@@ -2,8 +2,10 @@ language: python
 sudo: required
 python:
  - "3.4.3"
- 
-test:
 
+install:
+- pip install -r requirements.txt 
+
+test:
 - cd Python
 - python test.py
