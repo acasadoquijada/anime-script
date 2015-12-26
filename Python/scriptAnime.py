@@ -62,7 +62,7 @@ def historial(anime):
 		for i in info:
 			print(i)
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
 
 	#Pedimos el anime
 	anime = input("¿Que anime quieres ver?: ")
