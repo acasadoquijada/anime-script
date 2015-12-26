@@ -7,6 +7,6 @@ install:
 - cd Python
 - pip install -r requirements.txt 
 
-test:
+script:
 - cd Python
 - python test.py
