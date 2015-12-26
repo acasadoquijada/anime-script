@@ -1,7 +1,8 @@
 #ScriptAnime
 
 [![Build Status](https://travis-ci.org/acasadoquijada/anime-script.svg?branch=master)](https://travis-ci.org/acasadoquijada/anime-script)
-s
+[![Coverage Status](https://coveralls.io/repos/acasadoquijada/anime-script/badge.svg?branch=master&service=github)](https://coveralls.io/github/acasadoquijada/anime-script?branch=master)
+
 ##Descripción
 
 Se trata de un pequeño programa para visualizar anime, consta de un registro para saber por que capítulo vas, importante para serie kilométricas como Bleach.
