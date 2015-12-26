@@ -3,7 +3,7 @@ import unittest
 from scriptAnime import *
 
 
-class TestStringMethods(unittest.TestCase):
+class Test(unittest.TestCase):
 	
 	def test_formato_anime(self):
 		anime = "Sword ArT onLiNe"
@@ -13,6 +13,24 @@ class TestStringMethods(unittest.TestCase):
 		self.assertEqual("sword-art-online", anime_limpio)
 		
 		print("Test formato anime correcto")
+
+
+	def test_registro(self):
+		anime = "bleach"
+		capitulo = 44
+		
+		registro(anime,capitulo)
+		
+		con = lite.connect('registro.db')
+
+		with con:
+
+			cur = con.cursor()
+			info = cur.execute("SELECT capitulo FROM bleach")
+			
+			self.assertEqual(cur.fetchone()[0], capitulo)
+
+		print("Test registro correcto")
 
 if __name__ == '__main__':
 	unittest.main()	
