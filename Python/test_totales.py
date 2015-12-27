@@ -1,4 +1,4 @@
-import unittest,os
+import unittest
 
 from scriptAnime import *
 
@@ -36,6 +36,5 @@ class Test(unittest.TestCase):
 
 
 if __name__ == '__main__':
-	os.remove("registro.db")	#Eliminamos la BD
 	unittest.main()	
 
