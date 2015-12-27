@@ -1,14 +1,4 @@
-#!/usr/bin/python
-##############################################################################################
-# AnimeCript  script para ver anime
-#
-# anime => Guarda el anime a ver
-# historial => Se almace los 3 ultimos capitulos vistos del anime seleccionado, si los hay
-# capitulo => Guarda el capitulo a ver
-# fecha => Fecha en la que se visiona el anime
-# hora => Hora en la que se visiona el anime
-# url => Url con el anime y capitulo seleccionado
-##############################################################################################
+### By @acasadoquijada
 
 import webbrowser
 from datetime import date, datetime
@@ -19,7 +9,17 @@ import sqlite3 as lite
 # Funciones auxiliares #
 ########################
 
- 
+# Comprueba si num es un número
+def numero(num):
+
+	formato = re.compile("^[\-]?[1-9][0-9]*\.?[0-9]+$")
+	es_numero = re.match(formato,num)
+	
+	if es_numero:
+		return True
+	else:
+		return False
+
 def registro(anime,capitulo):
 
 	con = lite.connect('registro.db')
@@ -77,6 +77,11 @@ if __name__ == "__main__": # pragma: no cover
 	historial(anime)
 
 	capitulo = input("¿Que capítulo?: ")
+
+	while(numero(capitulo)==False):
+		print("Introduce un capítulo válido (Formato numérico)")
+		capitulo = input("¿Que capítulo?: ")
+
 
 	#Guardamos la informacion en el registro
 	registro(anime,capitulo)

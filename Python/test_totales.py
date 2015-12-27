@@ -1,4 +1,4 @@
-import unittest
+import unittest,os
 
 from scriptAnime import *
 
@@ -35,6 +35,21 @@ class Test(unittest.TestCase):
 		print("Test registro/historial correcto")
 
 
+	def test_numero(self):
+		num = 25
+
+		es_numero = numero(str(num))
+		
+		self.assertEqual(True, es_numero)
+
+		es_numero = numero("pepe")
+		
+		self.assertEqual(False, es_numero)
+
+		
+		print("Test comprobación número correcto")
+
 if __name__ == '__main__':
+	os.remove("registro.db")
 	unittest.main()	
 
