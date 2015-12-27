@@ -9,17 +9,6 @@ import sqlite3 as lite
 # Funciones auxiliares #
 ########################
 
-# Comprueba si num es un número
-def numero(num):
-
-	formato = re.compile("^[\-]?[1-9][0-9]*\.?[0-9]+$")
-	es_numero = re.match(formato,num)
-	
-	if es_numero:
-		return True
-	else:
-		return False
-
 def registro(anime,capitulo):
 
 	con = lite.connect('registro.db')
@@ -48,7 +37,8 @@ def formato_anime(anime):
 def historial(anime):
 
 	con = lite.connect('registro.db')
-
+	historial = list()
+	
 	with con:
 
 		cur = con.cursor()
@@ -60,7 +50,7 @@ def historial(anime):
 		print("Ultimos capítulos visionados de " + anime)
 
 		for i in info:
-			print(i)
+			historial.append(i)
 
 if __name__ == "__main__": # pragma: no cover
 
@@ -78,7 +68,7 @@ if __name__ == "__main__": # pragma: no cover
 
 	capitulo = input("¿Que capítulo?: ")
 
-	while(numero(capitulo)==False):
+	while(capitulo.isdigit()==False):
 		print("Introduce un capítulo válido (Formato numérico)")
 		capitulo = input("¿Que capítulo?: ")
 
