@@ -9,7 +9,7 @@ Se trata de un pequeño programa para visualizar anime, consta de un registro pa
 
 Básicamente lanza nuestro navegador por defecto con el anime-capítulo deseado en [anime-flv](http://animeflv.net/)
 
-##¿Por que en python y shell?
+##¿Por qué en python y shell?
 
 El proyecto comenzó como algo personal para ayudarme a llevar un control sobre el visionado de Bleach, por lo que al ser algo sencillo decidí usar shell, después le añadí una interfaz gráfica simple.
 
